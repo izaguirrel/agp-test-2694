@@ -1,0 +1,11 @@
+{
+  "name": "agp-test-2694",
+  "version": "1.0.0",
+  "description": "Test repo for GUIDE-2694 AGP package-scope dedup testing",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "9.14.0"
+  }
+}
