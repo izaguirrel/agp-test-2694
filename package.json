@@ -7,6 +7,6 @@
   },
   "devDependencies": {
     "eslint": "9.14.0",
-    "guava": "0.0.3"
+    "guava": "^0.0.5"
   }
 }
