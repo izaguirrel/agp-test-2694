@@ -1,24 +1,12 @@
 # Sonatype Guide — Agentic Patches Configuration
-# Learn more: https://guide.sonatype.com
-# File: agp.yml
-
 version: "1"
 
-# Paths and packages AGP should skip during scanning
 ignore:
-  # Glob patterns for this ecosystem (npm/node)
   paths:
     - "**/node_modules/**"
     - "**/.git/**"
-    - "**/dist/**"
-    - "**/build/**"
-  # Package names to never upgrade (add specific packages if needed)
   packages: []
-  # Example:
-  # packages:
-  #   - "legacy-critical-package"
 
-# AI agent for automated fix attempts
 agent:
   enabled: true
   provider: anthropic
@@ -26,43 +14,14 @@ agent:
   maxFixAttempts: 3
   timeout: 30m
 
-# Build validation after upgrades
 validation:
   enabled: false
-  # Commands to validate the build after dependency changes
-  # Customize these based on your project's actual build/test commands
-  commands:
-    - "npm install"
-    - "npm run build"
-    # - "npm test"  # Uncomment if you have tests
-  timeout: 10m
 
-# Pull request settings
 pr:
   labels:
     - dependencies
     - automated
-    - agp
-  draft: false
-  titleTemplate: "chore(deps): {{.GroupName}}"
-  branchTemplate: "agp/{{.GroupID}}"
-  # Add reviewers if needed
-  reviewers: []
-  # reviewers:
-  #   - your-github-username
 
-# Rate limiting to avoid overwhelming the repository
 limits:
-  closedPrCooldownDays: 0
   maxOpenPRs: 5
   maxPRsPerRun: 10
-  waitPeriod:
-    major: 7d
-    minor: 3d
-    patch: 1d
-
-# Auto-merge settings (disabled by default)
-automerge:
-  enabled: false
-  method: squash  # Options: squash, merge, rebase
-
