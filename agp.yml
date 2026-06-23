@@ -53,6 +53,7 @@ pr:
 
 # Rate limiting to avoid overwhelming the repository
 limits:
+  closedPrCooldownDays: 0
   maxOpenPRs: 5
   maxPRsPerRun: 10
   waitPeriod:
